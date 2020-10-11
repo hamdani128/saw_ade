@@ -1,14 +1,14 @@
-<div class="left-side-menu">
+<div class="left-side-menu bg-dark">
 
     <div class="h-100" id="left-side-menu-container" data-simplebar>
 
         <!-- LOGO -->
         <a href="#" class="logo text-center">
             <span class="logo-lg">
-                <img src="assets/images/telkom.png" alt="" height="16" id="side-main-logo">
+                <img src="assets/images/telkom.png"  height="50" id="side-main-logo">
             </span>
             <span class="logo-sm">
-                <img src="assets/images/telkom.png" alt="" height="16" id="side-sm-main-logo">
+                <img src="assets/images/telkom.png"  height="4`0" id="side-sm-main-logo">
             </span>
         </a>
 

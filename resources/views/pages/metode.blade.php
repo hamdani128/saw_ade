@@ -185,20 +185,20 @@
                                   <tr>
                                       <td>{{ $item->alternatif->kode }}</td>
                                       <td>{{ $item->alternatif->nama }}</td>
-                                      <td id="c1">{{ number_format(($item->nilai1/$K1) * $B1,2) }}</td>
-                                      <td id="c2">{{ number_format(($item->nilai2/$K2)*$B2,2) }}</td>
-                                      <td id="c3">{{ number_format(($item->nilai3/$K3)*$B3,2) }}</td>
-                                      <td id="c4">{{ number_format(($item->nilai4/$K4)*$B4,2) }}</td>
-                                      <td id="c5">{{ number_format(($item->nilai5/$K5)*$B5,2) }}</td>
-                                      <td id="c6">{{ number_format(($item->nilai6/$K6)*$B6,2) }}</td>
-                                      <td id="c7">{{ number_format(($item->nilai7/$K7)*$B7,2) }}</td>
-                                      <td id="c8">{{ number_format(($item->nilai8/$K8)*$B8,2) }}</td>
-                                      <td id="c9">{{ number_format(($item->nilai9/$K9)*$B9,2) }}</td>
-                                      <td id="c10">{{ number_format(($item->nilai10/$K10)*$B10,2) }}</td>
-                                      <td id="c11">{{ number_format(($item->nilai11/$K11)*$B11,2) }}</td>
-                                      <td id="c12">{{ number_format(($item->nilai12/$K12)*$B12,2) }}</td>
-                                      <td id="c13">{{ number_format(($item->nilai13/$K13)*$B13,2) }}</td>
-                                      <td id="c114">{{ number_format(($item->nilai14/$K14)*$B14,2) }}</td>
+                                      <td id="c1">{{  number_format(($item->nilai1/$K1) * $B1,2) }}</td>
+                                      <td id="c2">{{ number_format(($item->nilai2/$K2)* $B2,2) }}</td>
+                                      <td id="c3">{{ number_format(($item->nilai3/$K3)* $B3,2) }}</td>
+                                      <td id="c4">{{ number_format(($item->nilai4/$K4)* $B4,2) }}</td>
+                                      <td id="c5">{{ number_format(($item->nilai5/$K5)* $B5,2) }}</td>
+                                      <td id="c6">{{ number_format(($item->nilai6/$K6)* $B6,2) }}</td>
+                                      <td id="c7">{{ number_format(($item->nilai7/$K7)* $B7,2) }}</td>
+                                      <td id="c8">{{ number_format(($item->nilai8/$K8)* $B8,2) }}</td>
+                                      <td id="c9">{{ number_format(($item->nilai9/$K9)* $B9,2) }}</td>
+                                      <td id="c10">{{ number_format(($item->nilai10/$K10)* $B10,2) }}</td>
+                                      <td id="c11">{{ number_format(($item->nilai11/$K11)* $B11,2) }}</td>
+                                      <td id="c12">{{ number_format(($item->nilai12/$K12)* $B12,2) }}</td>
+                                      <td id="c13">{{ number_format(($item->nilai13/$K13)* $B13,2) }}</td>
+                                      <td id="c114">{{ number_format(($item->nilai14/$K14)* $B14,2) }}</td>
                                   </tr>
                               @empty
                                       <tr>
@@ -224,7 +224,7 @@
                 <div class="card-body">
                     <div class="col-sm-12">
                         <div class="row">
-                            <button class="btn btn-md btn-info" id="proses"><i class=""mdi mdi-refresh""></i> Refresh</button>
+                        <a href="{{ route('printpriview') }}" class="btn btn-md btn-info" id="print"><i class="mdi mdi-printer"></i> Print</a>
                         </div>
                        <div class="row">
                         <div class="table-responsive">
@@ -234,7 +234,7 @@
                                         <th>Kode</th>
                                         <th>Alternatif</th>
                                         <th>Hasil</th>
-                                        {{-- <th>Rangking</th> --}}
+                                        <th>Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -256,8 +256,62 @@
                                              number_format(($item->nilai12/$K12) * $B12,2) +
                                              number_format(($item->nilai13/$K13) * $B13,2) +
                                              number_format(($item->nilai1/$K1) * $B1,2) 
-                                            }}</td>
-                                      {{-- <td id="keterangan"></td> --}}
+                                            }} </td>
+
+                                                @if (number_format(($item->nilai1/$K1) * $B1,2) +
+                                                number_format(($item->nilai2/$K2) * $B2,2) +
+                                                number_format(($item->nilai3/$K3) * $B3,2) +
+                                                number_format(($item->nilai4/$K4) * $B4,2) +
+                                                number_format(($item->nilai5/$K5) * $B5,2) +
+                                                number_format(($item->nilai6/$K6) * $B6,2) +
+                                                number_format(($item->nilai7/$K7) * $B7,2) +
+                                                number_format(($item->nilai8/$K8) * $B8,2) +
+                                                number_format(($item->nilai9/$K9) * $B9,2) +
+                                                number_format(($item->nilai10/$K10) * $B10,2) +
+                                                number_format(($item->nilai11/$K11) * $B11,2) +    
+                                                number_format(($item->nilai12/$K12) * $B12,2) +
+                                                number_format(($item->nilai13/$K13) * $B13,2) +
+                                                number_format(($item->nilai1/$K1) * $B1,2)>95) 
+                                                
+                                                <td id="keterangan">Terbaik</td>
+
+                                                @elseif (number_format(($item->nilai1/$K1) * $B1,2) +
+                                                number_format(($item->nilai2/$K2) * $B2,2) +
+                                                number_format(($item->nilai3/$K3) * $B3,2) +
+                                                number_format(($item->nilai4/$K4) * $B4,2) +
+                                                number_format(($item->nilai5/$K5) * $B5,2) +
+                                                number_format(($item->nilai6/$K6) * $B6,2) +
+                                                number_format(($item->nilai7/$K7) * $B7,2) +
+                                                number_format(($item->nilai8/$K8) * $B8,2) +
+                                                number_format(($item->nilai9/$K9) * $B9,2) +
+                                                number_format(($item->nilai10/$K10) * $B10,2) +
+                                                number_format(($item->nilai11/$K11) * $B11,2) +    
+                                                number_format(($item->nilai12/$K12) * $B12,2) +
+                                                number_format(($item->nilai13/$K13) * $B13,2) +
+                                                number_format(($item->nilai1/$K1) * $B1,2)>80)
+
+                                                <td id="keterangan">Baik</td>
+
+                                                @elseif (number_format(($item->nilai1/$K1) * $B1,2) +
+                                                number_format(($item->nilai2/$K2) * $B2,2) +
+                                                number_format(($item->nilai3/$K3) * $B3,2) +
+                                                number_format(($item->nilai4/$K4) * $B4,2) +
+                                                number_format(($item->nilai5/$K5) * $B5,2) +
+                                                number_format(($item->nilai6/$K6) * $B6,2) +
+                                                number_format(($item->nilai7/$K7) * $B7,2) +
+                                                number_format(($item->nilai8/$K8) * $B8,2) +
+                                                number_format(($item->nilai9/$K9) * $B9,2) +
+                                                number_format(($item->nilai10/$K10) * $B10,2) +
+                                                number_format(($item->nilai11/$K11) * $B11,2) +    
+                                                number_format(($item->nilai12/$K12) * $B12,2) +
+                                                number_format(($item->nilai13/$K13) * $B13,2) +
+                                                number_format(($item->nilai1/$K1) * $B1,2)>70)
+
+                                                <td id="keterangan">Cukup Baik</td>
+
+                                                @endif
+                                        
+                                        
                                   </tr>
                               @empty
                                       <tr>
@@ -275,17 +329,12 @@
     </div>
 
     @section('saw')
-        <script>
-            $("#proses").click(function(){
-                var h = $('#hasil').val()
-                // var k;
-                // if (h >= 80 ){
-                //     document.getElementById('keterangan').innerHTML = "Terbaik"
-                // }
-                
+        <script src="/assets/js/jquery.printPage.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#print').printPage();
             });
         </script>
-       
     @endsection
 
    

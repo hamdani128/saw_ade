@@ -45,7 +45,7 @@
 
                                     <div class="form-group">
                                         <label for="Username">Username</label>
-                                        <input class="form-control" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" id="emailaddress" required="" placeholder="Enter your username">
+                                        <input  type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" id="emailaddress" required="" placeholder="Enter your username">
                                         
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a>
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" @error('password') is-invalid @enderror" name="password" id="password" placeholder="Enter your password">
+                                        <input class="form-control @error('password') is-invalid @enderror" type="password" name="password" id="password" placeholder="Enter your password">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

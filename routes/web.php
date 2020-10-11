@@ -36,5 +36,6 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/criteria', 'saw\CriteriaController@index')->name('kriteria');
     Route::get('/saw-method', 'saw\MetodeController@index')->name('metode-saw');
+    Route::get('/saw-method/printpriview', 'saw\MetodeController@printpriview')->name('printpriview');
 });
 // Route::get('/home', 'HomeController@index')->name('home');

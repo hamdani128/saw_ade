@@ -77,6 +77,7 @@ class MetodeController extends Controller
         $S14 = ($N14/$K14) * $B14; 
 
         $V1 = $S1 + $S2 + $S3 + $S4 + $S5 + $S6 + $S7 + $S8 + $S9 + $S10 + $S11 + $S12 + $S13 + $S14; 
+        
         if ($V1 < 80){
             $hasil = "-";
         }else if($V1 > 80){
@@ -84,8 +85,10 @@ class MetodeController extends Controller
         }else if ($V1 > 100){
             $hasil = "Sangat Terbaik";
         }
+
+        
         return view('pages.metode', compact('data','K1','K2','K3','K4','K5','K6','K7','K8','K9','K10','K11','K12','K13','K14',
-        'B1', 'B2','B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil'));
+        'B1', 'B2','B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil','V1','S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12','S13','S14'));
         // return $hasil;
     }
 
@@ -152,16 +155,18 @@ class MetodeController extends Controller
         $S13 = ($N13/$K13) * $B13; 
         $S14 = ($N14/$K14) * $B14; 
 
-        $V1 = $S1 + $S2 + $S3 + $S4 + $S5 + $S6 + $S7 + $S8 + $S9 + $S10 + $S11 + $S12 + $S13 + $S14; 
-        if ($V1 < 80){
+        $v1 = $S1 + $S2 + $S3 + $S4 + $S5 + $S6 + $S7 + $S8 + $S9 + $S10 + $S11 + $S12 + $S13 + $S14; 
+        
+        if ($v1 < 80){
             $hasil = "-";
-        }else if($V1 > 80){
+        }else if($v1 > 80){
             $hasil = "Terbaik"; 
-        }else if ($V1 > 100){
+        }else if ($v1 > 100){
             $hasil = "Sangat Terbaik";
         }
+        return $v1;
         return view('pages.printpriview', compact('data','K1','K2','K3','K4','K5','K6','K7','K8','K9','K10','K11','K12','K13','K14',
-        'B1', 'B2','B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil'));
+        'B1', 'B2', 'a', 'B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil','v1'));
     }
 
     /**

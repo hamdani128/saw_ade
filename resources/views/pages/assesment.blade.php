@@ -696,7 +696,7 @@
       }else if ($("#model_nilai5 option:selected").text() == "Setuju"){
         bil = 4
       }else if ($("#model_nilai5 option:selected").text() == "Cukup Setuju"){
-        bil = 5
+        bil = 3
       }else if ($("#model_nilai5 option:selected").text() == "Kurang Setuju"){
         bil = 2
       }else if ($("#model_nilai5 option:selected").text() == "Tidak Setuju"){

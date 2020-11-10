@@ -39,6 +39,7 @@
                                         <th>Kode</th>
                                         <th>Alternatif</th>
                                         <th>Hasil</th>
+                                        <th>Ranking</th>
                                         <th>Keterangan</th>
                                     </tr>
                                 </thead>
@@ -47,7 +48,7 @@
                                   <tr>
                                       <td>{{ $item->alternatif->kode }}</td>
                                       <td>{{ $item->alternatif->nama }}</td>
-                                      <td id="hasil">{{ number_format(($item->nilai1/$K1) * $B1,2) +
+                                      <td class="hasil">{{ number_format(($item->nilai1/$K1) * $B1,2) +
                                              number_format(($item->nilai2/$K2) * $B2,2) +
                                              number_format(($item->nilai3/$K3) * $B3,2) +
                                              number_format(($item->nilai4/$K4) * $B4,2) +
@@ -62,6 +63,7 @@
                                              number_format(($item->nilai13/$K13) * $B13,2) +
                                              number_format(($item->nilai1/$K1) * $B1,2) 
                                             }} </td>
+                                            <td class="Rank"></td>
 
                                                 @if (number_format(($item->nilai1/$K1) * $B1,2) +
                                                 number_format(($item->nilai2/$K2) * $B2,2) +
@@ -136,7 +138,20 @@
         <script src="/assets/js/jquery.printPage.js"></script>
         <script src="/assets/js/jquery.printPage.js"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
+                $(function() {
+        //Get all total values, sort and remove duplicates
+                            let totalList = $(".hasil")
+                                .map(function() {return $(this).text()})
+                                .get()
+                                .sort(function(a,b){return a - b })
+                                .reduce(function(a, b) {if (b != a[0]) a.unshift(b);return a}, [])
+
+                            //Assign rank
+                            totalList.forEach((v, i) => {
+                                $('.hasil').filter(function() {return $(this).text() == v;}).next().text(i + 1);
+                            })
+                    });
+                    $(document).ready(function(){
                 window.print();
             });
         </script>

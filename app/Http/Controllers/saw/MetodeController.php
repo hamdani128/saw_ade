@@ -164,9 +164,9 @@ class MetodeController extends Controller
         }else if ($v1 > 100){
             $hasil = "Sangat Terbaik";
         }
-        return $v1;
+        // return $v1;
         return view('pages.printpriview', compact('data','K1','K2','K3','K4','K5','K6','K7','K8','K9','K10','K11','K12','K13','K14',
-        'B1', 'B2', 'a', 'B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil','v1'));
+        'B1', 'B2', 'B3','B4','B5','B6','B7','B8','B9','B10','B11','B12','B13','B14','hasil','v1'));
     }
 
     /**

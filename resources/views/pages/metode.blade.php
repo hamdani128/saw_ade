@@ -228,7 +228,7 @@
                         </div>
                        <div class="row">
                         <div class="table-responsive">
-                            <table id="basic-datatable" class="table dt-responsive nowrap">
+                            <table id="basic-datatable-hasil" class="table dt-responsive nowrap">
                                 <thead>
                                     <tr>
                                         <th>Kode</th>
@@ -349,21 +349,47 @@
             totalList.forEach((v, i) => {
                 $('.hasil').filter(function() {return $(this).text() == v;}).next().text(i + 1);
                  })
+                 
+            sortTable()     
+
             });
 
-            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-
-            const comparer = (idx, asc) => (a, b) => ((v1, v2) => 
-                v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-                )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-
-            // do the work...
-            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-                const table = th.closest('table');
-                Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
-                    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                    .forEach(tr => table.appendChild(tr) );
-            })));
+            // 
+            
+            function sortTable() {
+                var table, rows, switching, i, x, y, shouldSwitch;
+                table = document.getElementById("basic-datatable-hasil");
+                switching = true;
+                /*Make a loop that will continue until
+                no switching has been done:*/
+                while (switching) {
+                    //start by saying: no switching is done:
+                    switching = false;
+                    rows = table.rows;
+                    /*Loop through all table rows (except the
+                    first, which contains table headers):*/
+                    for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[3];
+                    y = rows[i + 1].getElementsByTagName("TD")[3];
+                    //check if the two rows should switch place:
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                    }
+                    if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    }
+                }
+            }
 
         </script>
     @endsection

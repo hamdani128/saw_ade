@@ -151,6 +151,8 @@
                                 $('.hasil').filter(function() {return $(this).text() == v;}).next().text(i + 1);
                             })
                     });
+
+                    
                     $(document).ready(function(){
                 window.print();
             });

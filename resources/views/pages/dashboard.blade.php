@@ -25,7 +25,7 @@
                 <div class="card-body bg-info">
                     <i class=' dripicons-cart float-right text-white'></i>
                     <h6 class="text-uppercase mt-0">Alternatif</h6>
-                    <h2 class="my-2" id="active-users-count">4</h2>
+                    <h2 class="my-2" id="active-users-count">{{ $alternatif }}</h2>
                     <p class="mb-0 text-muted">
                         <span class="text-nowrap text-white">Data Alternatif</span>
                     </p>
@@ -37,7 +37,7 @@
                 <div class="card-body bg-success">
                     <i class=' dripicons-cart float-right'></i>
                     <h6 class="text-uppercase mt-0">Kriteria</h6>
-                    <h2 class="my-2" id="active-users-count">4</h2>
+                    <h2 class="my-2" id="active-users-count">{{ $kriteria }}</h2>
                     <p class="mb-0 text-muted">
                         <span class="text-nowrap text-white">Data Kriteria</span>
                     </p>
@@ -49,7 +49,7 @@
                 <div class="card-body bg-danger">
                     <i class='dripicons-shopping-bag float-right'></i>
                     <h6 class="text-uppercase mt-0">Penilaian (Assestmnet)</h6>
-                    <h2 class="my-2" id="active-users-count">4</h2>
+                    <h2 class="my-2" id="active-users-count">{{ $penilaian }}</h2>
                     <p class="mb-0 text-muted">
                         <span class="text-nowrap text-white">Penilaian</span>  
                     </p>

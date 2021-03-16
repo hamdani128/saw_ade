@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\saw\Alternatif;
+use App\saw\Assesment;
+use App\saw\Criteria;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +31,9 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('pages.dashboard');
+        $alternatif = Alternatif::get()->count();
+        $kriteria = Criteria::get()->count();
+        $penilaian = Assesment::get()->count();
+        return view('pages.dashboard', compact('alternatif', 'kriteria', 'penilaian'));
     }
-
 }
